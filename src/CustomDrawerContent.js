@@ -8,7 +8,7 @@ export class CustomDrawerContent extends Component
     render()
     {
         return(
-            <SafeAreaView style={{flex:1}}>
+            <SafeAreaView style={{flex:1,backgroundColor:'lightblue'}}>
                 <View style={{height:150,alignItems:'center',justifyContent:'center'}}>
                         <Image source={IMAGE.ICON_PROFILE} style={{height:120,width:120,borderRadius:60}}/>
                 </View>
@@ -19,10 +19,10 @@ export class CustomDrawerContent extends Component
                       <TouchableOpacity style={{marginTop:20}} onPress={()=>this.props.navigation.navigate('Notifications')}>
                         <Text>Notifications</Text>
                       </TouchableOpacity>
-                </ScrollView>
-                <TouchableOpacity style={{marginTop:20,marginLeft:5}} onPress={()=>this.props.navigation.navigate('Login')}>
+                      <TouchableOpacity style={{marginTop:20}} onPress={()=>this.props.navigation.navigate('Login')}>
                         <Text>LogOut</Text>
                 </TouchableOpacity>
+                </ScrollView>
             </SafeAreaView>
           );
     }

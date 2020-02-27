@@ -8,7 +8,7 @@ export class CustomHeader extends Component
 
         let {navigation,isHome,title}=this.props
         return(
-            <View style={{flexDirection:'row',height:100}}>
+            <View style={{flexDirection:'row',height:65,backgroundColor:'lightblue'}}>
                   <View style={{flex:1,justifyContent:'center'}}>
                     {
                      isHome ?

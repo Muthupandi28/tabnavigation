@@ -66,6 +66,7 @@ function TabNavigator()
               },
             })}
             tabBarOptions={{
+              activeBackgroundColor:'lightblue',
               activeTintColor: 'red',
               inactiveTintColor: 'black',
             }}
