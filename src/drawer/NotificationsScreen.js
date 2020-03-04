@@ -7,10 +7,14 @@ export class NotificationsScreen extends Component{
     {
         return (
             <SafeAreaView style={{ flex: 1 }}>
-              <CustomHeader title="Notifications" navigation={this.props.navigation}/>
               <View style={{flex:1,justifyContent:'center',alignItems:'center'}} >
                   <Text>Notifications</Text>
+                  <TouchableOpacity style={{marginTop:20}} onPress={()=>this.props.navigation.navigate('Home')}>
+                      <Text>Go back</Text>
+                  </TouchableOpacity>
               </View>
+              
+              
           </SafeAreaView>
           );
     }

@@ -22,8 +22,17 @@ const navOptionHandler =()=>({
 
 const StackHome=createStackNavigator();
 
-function HomeStack()
+function HomeStack({navigation,route})
 {
+  // if(route.state&&route.state.routeNames[route.state.index]==="HomeDetails")
+  // {
+    
+  //   navigation.setOptions({tabBarVisible:'false'});
+  // }
+  // else
+  // {
+  //   navigation.setOptions({tabBarVisible:'false'});
+  // }
   return(
   <StackHome.Navigator initialRouteName="Home">
     <StackHome.Screen name="Home" component={HomeScreen} options={navOptionHandler}/>
@@ -45,8 +54,6 @@ function SettingsStack()
 }
 
 
-
-
 function TabNavigator()
 {
       return(
@@ -54,11 +61,12 @@ function TabNavigator()
             screenOptions={({ route }) => ({
               tabBarIcon: ({ focused, color, size }) => {
                 let iconName;
-                if (route.name === 'Home') {
-                  iconName = focused
-                    ? IMAGE.ICON_HOME
-                    : IMAGE.ICON_HOMECOLOR
-                } else if (route.name === 'Settings') {
+                if (route.name === 'Home') 
+                {
+                  iconName = focused ? IMAGE.ICON_HOME: IMAGE.ICON_HOMECOLOR
+                }
+               else if (route.name === 'Settings')
+                {
                   iconName = focused ?  IMAGE.ICON_SETTINGS :  IMAGE.ICON_SETTINGSCOLOR;
                 }
                 // You can return any component that you like here!
@@ -67,8 +75,9 @@ function TabNavigator()
             })}
             tabBarOptions={{
               activeBackgroundColor:'lightblue',
-              activeTintColor: 'red',
+              activeTintColor: 'gray',
               inactiveTintColor: 'black',
+      
             }}
           >
             <Tab.Screen name="Home" component={HomeStack} />
@@ -77,9 +86,26 @@ function TabNavigator()
       );
 }
 
+
+
+
+// const StackSetting1=createStackNavigator();
+
+// function TabNavigator()
+// {
+//   return (
+//     <StackSetting1.Navigator initialRouteName="Home">
+//       <StackSetting1.Screen name="Home" component={HomeStack} options={navOptionHandler}/>
+//       <StackSetting1.Screen name="Settings" component={SettingsStack} options={navOptionHandler}/>
+//   </StackSetting1.Navigator>
+//   );
+  
+// }
+
+
 const Drawer = createDrawerNavigator();
 
-function DrawerNavigation({navigation})
+function DrawerNavigation({navigation,route})
 {
   return(
     <Drawer.Navigator initialRouteName="MenuTab" drawerContent={()=><CustomDrawerContent navigation={navigation}/>}>

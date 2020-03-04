@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import { Text, View,Image,TouchableOpacity} from 'react-native';
 import {IMAGE} from './constant/Image'
+import { SafeAreaView } from 'react-native-safe-area-context';
 export class CustomHeader extends Component
 {
     render()
@@ -8,7 +9,9 @@ export class CustomHeader extends Component
 
         let {navigation,isHome,title}=this.props
         return(
-            <View style={{flexDirection:'row',height:65,backgroundColor:'lightblue'}}>
+          <SafeAreaView>
+          
+            <View style={{flexDirection:'row',height:55,backgroundColor:'lightblue'}}>
                   <View style={{flex:1,justifyContent:'center'}}>
                     {
                      isHome ?
@@ -31,10 +34,25 @@ export class CustomHeader extends Component
                     
                   </View>
                 <View style={{flex:1.5,justifyContent:'center'}}>
-                   <Text style={{textAlign:'center'}}>{title}</Text>
+                <TouchableOpacity style={{marginTop:20}} onPress={()=>this.props.navigation.navigate('Home')}>
+                      <Text>Home</Text>
+                  </TouchableOpacity>
                 </View>
-                <View style={{flex:1}}></View>
+                <View style={{flex:1.5,justifyContent:'center'}}>
+                </View>
+                <View style={{flex:1.5,justifyContent:'center'}}>
+                <TouchableOpacity style={{marginTop:20}} onPress={()=>this.props.navigation.navigate('Settings')}>
+                      <Text>Settings</Text>
+                  </TouchableOpacity>
+                </View>
             </View>
+
+            <View style={{flex:1.5,justifyContent:'center',alignItems:'center'}}>
+                <TouchableOpacity>
+                      <Text>{title}</Text>
+                  </TouchableOpacity>
+                </View>
+            </SafeAreaView>
           );
     }
 }
